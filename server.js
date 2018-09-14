@@ -75,7 +75,7 @@ app.post("/restaurants", (req, res) => {
 
 app.put("/restaurants/:id", (req, res) => {
   // ensure that the id in the request path and the one in request body match
-  if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
+  if (!(  (req.params.id) &&  (req.body.id) && (req.params.id === req.body.id) ) ) {
     const message =
       `Request path id (${req.params.id}) and request body id ` +
       `(${req.body.id}) must match`;
@@ -98,7 +98,7 @@ app.put("/restaurants/:id", (req, res) => {
   Restaurant
     // all key/value pairs in toUpdate will be updated -- that's what `$set` does
     .findByIdAndUpdate(req.params.id, { $set: toUpdate })
-    .then(restaurant => res.status(204).end())
+    .then(restaurant => res.status(201).json(restaurant.serialize()))
     .catch(err => res.status(500).json({ message: "Internal server error" }));
 });
 
@@ -120,9 +120,15 @@ let server;
 
 // this function connects to our database, then starts the server
 function runServer(databaseUrl, port = PORT) {
+// if (!(port)) {
+  // port= PORT;
+// }
+
   return new Promise((resolve, reject) => {
     mongoose.connect(
       databaseUrl,
+
+
       err => {
         if (err) {
           return reject(err);
@@ -137,6 +143,8 @@ function runServer(databaseUrl, port = PORT) {
             reject(err);
           });
       }
+
+
     );
   });
 }
