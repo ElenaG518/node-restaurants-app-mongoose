@@ -2,3 +2,11 @@ language: node_js
 node_js: node
 services:
 - mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: n18xIS5x09Igf0JgugV+jIDd5gmIRunHiHAdsul9/fTS3R6bD0Q1rLZY3fW9POGsEDTVh+cuOMpPHlLSypV2bu2Bcy1FnByHAQ3z4WxSOwhjHlVcBPj9HRCwd6bjuY+fy9cVaiAJ6mbd1OpHn1ZBDM9W+4EL8egS4yqwCpga8ZAxAXe5ERk8ngp5XAXTTlxAkYTE+8iJRghHEgQ1FLJA+C35MuTFqMhyMyus4/Su7k9/0St1kgL6GI+S8Ua1g2qO7eHYW+cXCAIVRG2vPixZYtLW4wBGfOX5vg1mFnalYwBRQyFm/0QsvH3Z7D1yUyJY/TQjYI/O4HNHB+DcKN3T6NXNhZj2jmbs8pt8OgRz6j2ZcCVDwC+aXK4HHkWVsuxBic70nsgFmwLRXsBPcT0r2qh7y1xdeVtUpAcV//vvdt/1RwtS5UoWbS9SF2RyAPgZP9PrKKvEKcM+moTQ/VXqPDBh58HFAN95LRffARTPGcZtcza6HZa4Y3wkztGFWxby+bnUzdyCcFn91laDdVmz6J5EkYzy4mcfl6MO/MyeKsiuGb5unS3j7pakd97PAkpHWM5lNn/nr+b3+AmuL8BNOigeznkJgP+20dfwS36/iXy8eIRJBmp1Xobe+Rf77TsPVZzG3AcvT50bFbfkpNv08SxKV9qhxpCab6DdZePhT+s=
+  app: damp-chamber-48285
+  on:
+    repo: ElenaG518/node-restaurants-app-mongoose
+    branch: feature/with-tests
